@@ -1,0 +1,22 @@
+html {
+    overflow: hidden;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body {
+    overflow: auto;
+    overflow-x: hidden;
+    margin: 0;
+
+}
+* {
+    font-family: "Poppins", sans-serif;
+}
+* :focus{
+    outline: none !important;
+}
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

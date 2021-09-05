@@ -1,0 +1,37 @@
+<div class="">
+    <input type="text" placeholder="Enter your booking id" [(ngModel)]="bookingId">
+    <button class="add" (click)="getDetails()">Submit</button>
+
+    <div class="table" *ngIf="detailTable">
+        <div class="table-head">
+            <div class="thead">
+                <p>Name</p>
+            </div>
+            <div class="thead">
+                <p>Starting Date</p>
+            </div>
+            <div class="thead">
+                <p>Endling Date</p>
+            </div>
+            <div class="thead">
+                <p>Rooms</p>
+            </div>
+        </div>
+        <div class="table-content">
+            <div class="row" >
+                <div class="titem">
+                    <p>{{details.name}}</p>
+                </div>
+                <div class="titem">
+                    <p>{{details.from * 1000 | date:'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="titem">
+                    <p>{{details.to * 1000 | date:'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="titem">
+                    <p>{{details.type}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
