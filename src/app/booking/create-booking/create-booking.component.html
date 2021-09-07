@@ -2,7 +2,7 @@
     <div class="d-flex">
         <label for="name">Name *</label>
         <input type="text" class="input-content" formControlName="name" placeholder="Name">
-        <p class="text-danger" *ngIf="bookingRequest.controls.name.invalid && bookingRequest.touched">
+        <p class="text-danger" *ngIf="bookingRequest.controls.name.invalid && bookingRequest.controls.name.touched ">
             This field is required.
         </p>
     </div>
@@ -11,7 +11,7 @@
         <input class="form-control" (click)="fromDate.toggleCalendar()" readonly placeholder="DD/MM/YYYY - DD/MM/YYYY"
             angular-mydatepicker name="reactiveFormsDate" formControlName="date" [options]="myDatePickerOptions"
             #fromDate="angular-mydatepicker" autocomplete="off" />
-            <p class="text-danger" *ngIf="bookingRequest.controls.date.invalid && bookingRequest.touched">
+            <p class="text-danger" *ngIf="bookingRequest.controls.date.invalid && bookingRequest.controls.name.touched">
                 This field is required.
             </p>
         </div>

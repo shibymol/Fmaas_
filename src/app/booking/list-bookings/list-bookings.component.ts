@@ -25,7 +25,7 @@ export class ListBookingsComponent implements OnInit {
       this.detailTable = true;
     },
       (error) => {
-        this.error = error;
+        this.toast.error('Enter Valid Id!');   
 
       })
   }

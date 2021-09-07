@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr'
 
 @Component({
   selector: 'app-create-booking',
@@ -14,6 +14,8 @@ export class CreateBookingComponent implements OnInit {
   details: any;
   roomType =['Adult', 'Children', 'Family']
   public myDatePickerOptions = {
+    disableUntil: { year: new Date().getUTCFullYear(), month: new Date().getUTCMonth() + 1, day: new Date().getUTCDate() - 1 },
+
     dateRange: true,
     dateFormat: 'dd/mm/yyyy'
   };
@@ -31,12 +33,13 @@ export class CreateBookingComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
 
 create(){
+ 
   if(this.bookingRequest.invalid){
-    this.toast.error("Enter valid details")
-    console.log('error')
+    this.toast.error('Enter Valid Details');   
     return
   }
   console.log(this.bookingRequest);
@@ -57,5 +60,6 @@ type: formVals.rooms
 }
 cancel(){
   this.bookingRequest.reset();
+  this.bookingId =''
 }
 }
