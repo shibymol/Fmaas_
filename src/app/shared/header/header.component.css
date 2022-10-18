@@ -1,0 +1,14 @@
+.outer{
+    display: flex;
+    padding: 15px;
+}
+.logo{
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-right: 15px;
+    background:url(/assets/images/telstra.png) -42px -42px no-repeat;
+}
+.logo img{
+    width: 100%;
+}

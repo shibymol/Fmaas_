@@ -1,26 +1,20 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomTabComponent } from './custom-tab/custom-tab.component';
-import { TabGroupComponent } from './tab-group/tab-group.component';
-import { AngularMyDatePickerModule } from 'angular-mydatepicker';
-
-
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [
-    CustomTabComponent,
-    TabGroupComponent
-  ],
+  declarations: [HeaderComponent, FooterComponent],
   imports: [
-    CommonModule,
-    AngularMyDatePickerModule
+    CommonModule
   ],
   exports: [
-    TabGroupComponent,
-    CustomTabComponent,
-    AngularMyDatePickerModule,
-
-
-  ]
+    HeaderComponent,
+    FooterComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
 })
 export class SharedModule { }

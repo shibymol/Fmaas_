@@ -1,0 +1,21 @@
+.outer{
+    position: relative;
+    width: 100%;
+}
+.header{
+    background-color: #001883;
+    color: #fff;
+    width: 100%;
+}
+.main{
+    position: relative;
+
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    background-color: #001883;
+    color: #fff;
+    width: 100%;
+}

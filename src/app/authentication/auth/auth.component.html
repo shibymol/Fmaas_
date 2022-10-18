@@ -1,0 +1,125 @@
+<div class="outer d-flex align-center">
+<div class="left_outer">
+   
+</div>
+<div class="right_outer">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="fraudCheck">
+            <form [formGroup]="fraudCheck" class="formGroup" >
+                <ng-template matStepLabel>Validation</ng-template>
+                <div class="form-outer">
+                <div class="">
+                    <label for="name">Enter your Mobile No.*</label>
+                    <input type="number" class="input-content" formControlName="MSISDN" placeholder="Mobile No.">
+                    <p class="text-danger" *ngIf="fraudCheck.controls.MSISDN.invalid && fraudCheck.controls.MSISDN.touched ">
+                        This field is required.
+                    </p>
+                </div>
+                <div class="">
+                    <label for="name">Select your current location*</label>
+                    <select formControlName="location">
+                        <option>select</option>
+                        <option *ngFor="let item of city">{{item}}</option>
+                    </select>
+                    <p class="text-danger" *ngIf="fraudCheck.controls.location.invalid && fraudCheck.controls.location.touched ">
+                        This field is required.
+                    </p>
+                </div>
+                <div class="form-group d-flex">
+                    <div class="round">
+                         <input
+                               type="checkbox"
+                               id="checkbox33"
+                               formControlName="check">
+                          <label for="checkbox33"></label>
+                     </div>
+                     <small class="text-muted">Allow to send OTP to registered mobile number.
+                             </small>
+             
+               </div>
+                <button mat-button matStepperNext class="add">Submit</button>
+                <button class="cancel">Reset</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="mfaCheck">
+            <form [formGroup]="mfaCheck" class="formGroup">
+                <ng-template matStepLabel>Authenticate</ng-template>
+                <div class="form-outer">
+
+                <div class="otp">
+                    <label for="name">Enter OTP*</label>
+                    <input type="password" class="input-content" formControlName="OTP" placeholder="OTP">
+                    <p class="text-danger" *ngIf="mfaCheck.controls.OTP.invalid && mfaCheck.controls.OTP.touched ">
+                        This field is required.
+                    </p>
+                </div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button  mat-button matStepperNext class="add" (click)="verify()">Verify</button>
+                <button class="cancel">Clear</button>
+                </div>
+            </form>
+        </mat-step>
+      
+        <mat-step>
+            <ng-template matStepLabel>High value orders</ng-template>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Amount">
+                  <th mat-header-cell *matHeaderCellDef> Amount </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Location">
+                  <th mat-header-cell *matHeaderCellDef> Location </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Location}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              
+              
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button  mat-button matStepperNext class="add">Verify</button>
+
+            </div>
+        </mat-step>
+      
+
+      
+        <mat-step>
+          <ng-template matStepLabel>Completed</ng-template>
+          <div class="completed">
+          <img src="/assets/images/completed.png"/>
+          Validation Successfull
+        </div>
+          <div class="btn-wrap" >
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()" class="add">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+           
+</div>   
+
+
+</div>
